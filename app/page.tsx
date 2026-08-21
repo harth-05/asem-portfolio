@@ -66,7 +66,7 @@ export default async function HomePage() {
           <CertificationsSection certifications={certifications} />
           <ProjectsSection projects={projects} />
           <ServicesSection services={services} />
-          <ContactSection profile={profile} />
+          <ContactSection />
         </main>
         <Footer profile={profile} socialLinks={socialLinks} />
       </div>
