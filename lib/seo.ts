@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://asem-portfolio-nine.vercel.app";
 const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "Asem Portfolio";
 
 export function generatePageMetadata({
@@ -52,10 +52,10 @@ export function generatePersonSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "Asem",
-    jobTitle: "Full-Stack Developer",
+    name: "Asem Al-Manari",
+    jobTitle: "Software Developer & Mobile Developer",
     url: siteUrl,
-    email: "contact@asem.dev",
+    email: "hello@asem.dev",
     sameAs: [] as string[],
   };
 }
@@ -106,7 +106,7 @@ export function generateProjectSchema({
     image: image || `${siteUrl}/og-default.png`,
     author: {
       "@type": "Person",
-      name: "Asem",
+      name: "Asem Al-Manari",
     },
     dateCreated: startDate || undefined,
     dateModified: endDate || undefined,

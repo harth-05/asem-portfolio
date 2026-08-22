@@ -1,21 +1,17 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Toaster } from "sonner";
+import { TechnicalFooter, TechnicalHeader } from "@/components/technical-chrome";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://asem-portfolio-nine.vercel.app";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     template: "%s | Asem Portfolio",
-    default: "Asem | Full-Stack Developer Portfolio",
+    default: "Asem Al-Manari | Software & Mobile Developer",
   },
   description:
-    "Full-Stack Developer specializing in modern web technologies. View my projects, skills, and experience.",
+    "Software and mobile developer building reliable digital products, practical tools, and clear technical experiences.",
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon-16x16.png",
@@ -25,21 +21,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} font-sans antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-          <Toaster richColors position="top-right" />
-        </ThemeProvider>
+    <html lang="en" className="dark">
+      <body className="font-sans antialiased">
+        <TechnicalHeader />
+        <div id="top">{children}</div>
+        <TechnicalFooter />
       </body>
     </html>
   );
